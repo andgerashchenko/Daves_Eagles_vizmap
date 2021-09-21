@@ -13,12 +13,12 @@
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin=""/>
 
-    <!-- Load jQuery and PapaParse to read data from a CSV file -->
+  
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
     
-    <!-- Our CSS -->
-    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <!-- The div that holds our map -->
@@ -28,12 +28,9 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
-    <!-- API key -->
-    <script type="text/javascript" src="static/js/config.js"></script>
+ 
     <!-- Our JavaScript -->
     <script type="text/javascript">
-    // Add console.log to check to see if our code is working.
-console.log("working");
 
 // Create the map object with a center and zoom level.
 let map = L.map('mapid').setView([41.2610, -95.9376], 4);
@@ -53,7 +50,7 @@ let map = L.map('mapid').setView([41.2610, -95.9376], 4);
   /* Stamen colored terrain basemap tiles with labels */
   var terrain = L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png', {
     attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
-  }); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
+  }); 
   controlLayers.addBaseLayer(terrain, 'Stamen Terrain basemap');
 
   // see more basemap options at https://leaflet-extras.github.io/leaflet-providers/preview/
@@ -64,8 +61,8 @@ let map = L.map('mapid').setView([41.2610, -95.9376], 4);
     // Use PapaParse to convert string to array of objects
     var data = Papa.parse(csvString, {header: true, dynamicTyping: false}).data;
 
-    // For each row in data, create a marker and add it to the map
-    // For each row, columns `Latitude`, `Longitude`, and `Title` are required
+    // Create function for radius and color count
+   
     for (var i in data) {
         var row = data[i];
             function radiusInfo(x) {
@@ -98,7 +95,7 @@ let map = L.map('mapid').setView([41.2610, -95.9376], 4);
         }
         return "#98ee00";
       }
-      //console.log(getColor(row.class))
+     
       var marker = L.circleMarker([row.latitude, row.longitude], {
         opacity: 1,
         
@@ -121,7 +118,7 @@ let streets = L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });   
 
-// Then we add our 'graymap' tile layer to the map.
+
 streets.addTo(map);
     </script>
 </body>
