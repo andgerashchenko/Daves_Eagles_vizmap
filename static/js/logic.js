@@ -85,7 +85,7 @@ let map = L.map('mapid').setView([41.2610, -95.9376], 4);
 // We create the tile layer that will be the background of our map.
 let streets = L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-});
+});   
 
 // Then we add our 'graymap' tile layer to the map.
 streets.addTo(map);
