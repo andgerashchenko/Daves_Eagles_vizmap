@@ -33,7 +33,7 @@
     <script type="text/javascript">
 
 // Create the map object with a center and zoom level.
-let map = L.map('mapid').setView([41.2610, -95.9376], 4);
+let map = L.map('mapid').setView([37.2610, -95.9376], 5);
 
   /* Control panel to display map layers */
   var controlLayers = L.control.layers( null, null, {
@@ -67,16 +67,16 @@ let map = L.map('mapid').setView([41.2610, -95.9376], 4);
         var row = data[i];
             function radiusInfo(x) {
         if (x <= 392) {
-            return "6";
-          }
-          if (x > 392 && x <= 784) {
             return "4";
           }
+          if (x > 392 && x <= 784) {
+            return "2.5";
+          }
           if (x > 784 && x <= 1176) {
-            return "2";
+            return "1";
           }
           if (x > 1176) {
-            return "1";
+            return "0.5";
           };
         }
         
